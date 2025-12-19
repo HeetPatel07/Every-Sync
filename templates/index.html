@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EventSync — Simulated Log Monitor</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <div class="logo">ES</div>
+      <div>
+        <div class="title">EventSync</div>
+        <div class="subtitle">Simulated log monitor • grouped • watch filters</div>
+      </div>
+    </div>
+
+    <div class="right">
+      <span class="pill">Polling: 3s</span>
+      <a class="pill link" href="/api/logs?since=0" target="_blank">API</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="panel">
+      <div class="panel-head">
+        <div>
+          <div class="h">Watch Filters</div>
+          <div class="small">Add one or more filters. Notifications only fire when filters exist.</div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <input id="filterInput" placeholder="Type and press Enter (e.g. TEST.FILE or TIMEOUT)" />
+        <button id="clearAll" class="btn ghost">Clear</button>
+      </div>
+
+      <div id="filters" class="tags"></div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <div>
+          <div class="h">Grouped Logs</div>
+          <div class="small">Click a group to expand. Unread count resets when opened.</div>
+        </div>
+      </div>
+
+      <div id="groups" class="groups"></div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast hidden">
+    <div class="toast-dot"></div>
+    <div>
+      <div class="toast-title">New matching log</div>
+      <div id="toastText" class="toast-sub">A watched category just appeared.</div>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
